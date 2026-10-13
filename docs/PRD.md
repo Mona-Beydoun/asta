@@ -1,180 +1,228 @@
-# PRD: Asta's Preparation Dashboard
-# PRD: Asta's Preparation Dashboard
+# Asta's Preparation Dashboard --- Product Requirements Document
 
-> Status: Reviewed draft · Version 1.0 · Fictional scenario, not validated with real users
+## 1. Overview
 
-## 1. Summary
+**Product name:** Asta's Preparation Dashboard\
+**Product type:** Single-page preparation and task-tracking dashboard\
+**Technology stack:** Next.js, TypeScript, Tailwind CSS
 
-**Product name:** Asta's Preparation Dashboard
-**Product type:** Single-page training-plan tracker
-**Stack:** Next.js, TypeScript, Tailwind CSS
+Asta is a fictional fighter preparing for Lucifero. His training notes
+are scattered, so this dashboard gives him one clear place to view his
+three preparation tasks, mark tasks complete or incomplete, and see his
+overall progress.
 
-Asta is a fictional fighter preparing for Lucifero. His training notes are scattered, so this dashboard gives him one place to view three preparation tasks, mark them complete or incomplete, and see how much of his plan is done.
+## 2. User
 
-## 2. User and Problem
+The primary user is **Asta**, a fictional fighter preparing for a major
+battle against Lucifero.
 
-**Primary user:** Asta, a member of the Black Bulls Magic Knights. He is the only intended user. No account or login is needed.
+The dashboard is designed for a single user who wants a quick, simple
+overview of training tasks and preparation progress. No account or login
+is needed.
 
-**Problem:** Asta's training tasks are scattered across notes. He forgets what he has completed and cannot quickly see his progress.
+## 3. Problem
 
-This problem statement comes from the supplied fictional scenario. It is not based on user research or product validation.
+Asta's training notes are scattered, making it difficult to see which
+preparation tasks remain and how much progress he has made. He needs a
+simple dashboard that brings his tasks and progress together in one
+place.
 
-## 3. Goal of Version 1
+This problem statement is based on the supplied fictional scenario, not
+on user research or product validation.
 
-Let Asta see his three training tasks, mark each one complete or undo it, and see his plan-completion progress at a glance.
+## 4. Goal
 
-**Success:** All three tasks are visible, completion can be toggled in both directions, and the count, percentage and progress bar always match the current task states.
+Create a single dashboard that allows Asta to: - See all three
+predefined preparation tasks. - Mark each task complete and undo
+completion when needed. - Understand overall preparation progress at a
+glance.
 
-## 4. Core Features (exactly three)
+### Success criteria
 
-### 4.1 View training tasks
+The dashboard meets its goal when all three tasks are visible,
+completion can be toggled in either direction, the completed-task count
+updates correctly, and the percentage and progress bar reflect the
+current completion state.
 
-The dashboard shows three task cards in a fixed order. Each card shows the task's **name, description, priority and completion status**. All tasks start incomplete.
+## 5. Core Features
 
-### 4.2 Toggle completion
+### Feature 1: Predefined training task cards
 
-Each card has a control to mark the task complete and to undo that completion. Changing one task never changes another. Asta can change a task's state at any time.
+Display exactly three separate task cards: 1. Sword control 2. Physical
+endurance 3. Team coordination
 
-### 4.3 See calculated progress
+All tasks start as incomplete. Each card clearly shows its task name and
+completion state.
 
-A progress area shows:
+### Feature 2: Reversible task completion
 
-- the completed / total count (for example, 1 / 3),
-- the percentage, rounded to the nearest whole number,
-- a progress bar showing the same percentage.
+Each task card includes a clear control to mark the task complete or
+incomplete. Asta can change a task's state at any time. Completing a
+task must not prevent him from undoing that completion.
 
-Formula: `progress = (completed tasks / 3) × 100`
+### Feature 3: Calculated preparation progress
 
-The progress area states that the percentage measures **preparation-plan completion**, not a prediction of the outcome against Lucifero.
+Display: - The number of completed tasks out of three. - The preparation
+percentage. - A progress bar that visually represents the same
+percentage.
 
-## 5. User Stories
+Calculate progress from the current task states:
 
-- As Asta, I want to see all my training tasks in one place so that I know what I need to work on.
-- As Asta, I want to mark a task complete so that I can track what I have finished.
-- As Asta, I want to undo a completion so that I can correct my progress.
-- As Asta, I want to see how many tasks I have completed so that I understand my progress quickly.
-- As Asta, I want a percentage and progress bar so that I can see my overall plan status at a glance.
+**Preparation progress = (completed tasks / 3) × 100**
 
-## 6. Sample Data
+Expected values: - 0 completed tasks: 0% - 1 completed task:
+approximately 33.3% - 2 completed tasks: approximately 66.7% - 3
+completed tasks: 100%
 
-| Task | Description | Priority | Initial state |
-| --- | --- | --- | --- |
-| Sword control | Practise precise anti-magic sword movements. | High | Incomplete |
-| Physical endurance | Complete a focused strength and stamina session. | Medium | Incomplete |
-| Team coordination | Review a preparation plan with the Black Bulls. | High | Incomplete |
+The displayed percentage may be rounded to a whole number. The count,
+percentage, and progress bar must stay consistent.
 
-These are fictional teaching examples, not official character statistics.
+## 6. User Stories
 
-## 7. Expected Behaviour
+-   As Asta, I want to see all my preparation tasks in one place so I
+    can understand what I need to work on.
+-   As Asta, I want to mark a task complete so I can track what I have
+    finished.
+-   As Asta, I want to undo a task's completion so I can correct my
+    progress if necessary.
+-   As Asta, I want to see how many tasks I have completed so I can
+    quickly understand my progress.
+-   As Asta, I want a percentage and progress bar so I can understand my
+    overall preparation at a glance.
 
-| Action | Expected result |
-| --- | --- |
-| Page loads | 0 / 3 and 0%, all tasks incomplete |
-| Complete one task | 1 / 3 and 33% |
-| Complete a second task | 2 / 3 and 67% |
-| Complete all three tasks | 3 / 3 and 100% |
-| Undo one completed task | Count and percentage decrease to match |
-| Toggle the same task repeatedly | Count stays between 0 and 3 and matches the current task states |
-| Refresh the page | All tasks reset to incomplete (0 / 3, 0%) |
-
-## 8. Acceptance Criteria
+## 7. Acceptance Criteria
 
 ### Task display
 
-- [ ] The dashboard displays exactly three task cards, in this order: Sword control, Physical endurance, Team coordination.
-- [ ] Each card shows its name, description and priority.
-- [ ] Every task starts incomplete.
-- [ ] Each card shows the text "Complete" or "Incomplete" (status is not shown by color alone).
+-   [ ] The dashboard displays exactly three task cards.
+-   [ ] The cards are named "Sword control," "Physical endurance," and
+    "Team coordination."
+-   [ ] Every task starts incomplete when the dashboard is initialized.
+-   [ ] Each card visibly communicates whether its task is complete.
 
 ### Completion controls
 
-- [ ] Each task has a control that changes it from incomplete to complete.
-- [ ] Activating the control again changes it from complete to incomplete.
-- [ ] Changing one task does not change any other task.
-- [ ] Clicking the same task repeatedly never counts it twice.
-- [ ] Each control works with the keyboard, has an accessible name, and has a visible focus indicator.
+-   [ ] Each task has a control that changes its state from incomplete
+    to complete.
+-   [ ] Activating the control again changes the task from complete to
+    incomplete.
+-   [ ] Changing one task does not accidentally change the state of
+    another task.
+-   [ ] The completion control is operable using a keyboard and has an
+    accessible name.
 
-### Progress
+### Progress calculation
 
-- [ ] On load, the dashboard shows 0 / 3 and 0%.
-- [ ] With one task complete, it shows 1 / 3 and 33%.
-- [ ] With two tasks complete, it shows 2 / 3 and 67%.
-- [ ] With three tasks complete, it shows 3 / 3 and 100%.
-- [ ] Undoing a completion updates the count, percentage and progress bar immediately.
-- [ ] Progress is never below 0% or above 100%.
-- [ ] The progress bar's accessible value matches the calculated percentage.
-- [ ] Count and percentage are derived from task state, not stored as separate values.
-- [ ] The progress area states that the percentage measures preparation-plan completion, not a prediction of the outcome.
+-   [ ] Initially, the completed count is 0 out of 3 and progress is 0%.
+-   [ ] Completing one task updates the count to 1 out of 3 and progress
+    to approximately 33%.
+-   [ ] Completing two tasks updates the count to 2 out of 3 and
+    progress to approximately 67%.
+-   [ ] Completing all tasks updates the count to 3 out of 3 and
+    progress to 100%.
+-   [ ] Undoing completion updates the count, percentage, and progress
+    bar immediately.
+-   [ ] The progress bar's accessible value matches the calculated
+    progress.
+-   [ ] Progress is calculated from task state rather than maintained as
+    a separate, potentially inconsistent value.
 
-### Page content, layout and scope
+### Scope and runtime
 
-- [ ] The page shows a title, a short introduction to Asta's goal, and a compact Lucifero threat brief (static text only).
-- [ ] The layout is readable at about 360px wide and on desktop.
-- [ ] There are no decorative buttons that pretend to perform an action.
-- [ ] The product has one dashboard route only.
-- [ ] Refreshing the page resets all tasks to incomplete.
-- [ ] The implementation uses Next.js, TypeScript and Tailwind CSS.
-- [ ] The repository contains no credentials.
+-   [ ] The product consists of one dashboard route.
+-   [ ] The implementation uses Next.js, TypeScript, and Tailwind CSS.
+-   [ ] No login, database, or persistent storage is required.
+-   [ ] Refreshing the page may reset all tasks to incomplete.
 
-## 9. Design and Accessibility Requirements
+## 8. Design Requirements
 
-### Visual direction (recommendation, not tested user preference)
+### Visual direction
 
-- Dark charcoal surfaces with strong contrast and a warm off-white text color.
-- A restrained accent color (green or red) for progress and completed states.
-- Bold headings and clear task names.
-- Distinct visual states for incomplete and completed tasks.
-- Any decorative motif must not reduce readability.
+Use an energetic, anime-inspired style influenced by *Black Clover*. The
+interface should feel bold and adventurous while keeping task tracking
+easy to understand.
+
+Suggested visual direction: - Dark backgrounds with strong contrast. -
+Black and charcoal as the main surfaces. - Green accents inspired by
+Asta's visual identity, with restrained red or gold accents if useful. -
+Bold headings and clear task names. - Subtle decorative motifs inspired
+by fantasy, grimoire pages, or battle preparation, provided they do not
+distract from the tasks. - Distinct visual states for incomplete and
+completed tasks.
+
+These are design recommendations, not claims about tested user
+preferences.
 
 ### Layout
 
-- All essential information is on one page.
-- Order from top: title and introduction, Lucifero threat brief, progress area, task cards.
-- Responsive layout for mobile, tablet and desktop.
+-   Keep all essential information on one dashboard page.
+-   Place a clear page title and short preparation-focused introduction
+    near the top.
+-   Show the preparation percentage, progress bar, and completed/total
+    count in a clearly identifiable progress area.
+-   Display the three tasks as separate cards.
+-   Use a responsive layout that works on mobile, tablet, and desktop
+    screens.
 
-### Accessibility
+### Interaction and accessibility
 
-- Body text meets WCAG AA contrast (4.5:1).
-- Do not communicate state by color alone. Use text or an icon as well.
-- Controls are large enough to tap easily and have clear labels.
-- Keyboard focus is clearly visible.
-- Progress animation, if any, is subtle and never delays feedback.
+-   Make completion controls visually obvious and easy to activate.
+-   Do not communicate task state using color alone; include text, an
+    icon, or another clear indicator.
+-   Provide readable text contrast, visible keyboard focus, and
+    appropriately labeled controls.
+-   Use simple, consistent spacing and avoid decorative effects that
+    reduce readability.
+-   Animate progress changes only if the animation remains subtle and
+    does not delay feedback.
 
-## 10. Stack, Assumptions and Limitations
+## 9. Assumptions
 
-### Stack
+-   Asta is the sole intended user for this fictional dashboard.
+-   The three task names are fixed and predefined.
+-   All tasks begin incomplete whenever the dashboard state is
+    initialized.
+-   Every task has equal weight in the preparation calculation.
+-   The total number of tasks is always three.
+-   Progress is based only on task completion, not on time spent,
+    difficulty, or performance.
+-   In-memory client-side state is sufficient for this scope.
+-   The dashboard does not need to save state between page refreshes.
 
-- **Next.js:** one route.
-- **TypeScript:** typed task data and completion state.
-- **Tailwind CSS:** layout, responsiveness, colors and states.
-- **State:** simple client-side state in a small Client Component. Store which tasks are complete and derive the count and percentage.
+## 10. Limitations
 
-### Assumptions
-
-- Asta is the only user.
-- The three tasks are fixed and predefined, and the total is always three.
-- Every task has equal weight.
-- Progress depends only on completion, not on time, difficulty or performance.
-- In-memory state is enough for this scope.
-
-### Limitations
-
-- Progress resets on refresh. This is also stated in the README.
-- There is no account or cross-device sync.
-- Tasks cannot be added, edited, deleted or reordered.
-- The percentage measures plan completion only. It does not measure fighting ability or readiness for battle.
-- The scenario is fictional and has not been validated through user research.
+-   Task state may reset after refreshing the page.
+-   There is no account or cross-device synchronization.
+-   Users cannot add, remove, rename, reorder, or customize tasks.
+-   The progress percentage reflects task completion only; it does not
+    measure actual fighting ability or readiness for battle.
+-   The product is specified for a fictional scenario and has not been
+    validated through user research.
 
 ## 11. Out of Scope
 
-- Login, registration, accounts or roles.
-- Database, browser storage or any persistence.
-- Payments, subscriptions or donations.
-- Chatbot or AI assistant inside the product.
-- Combat simulation or battle mechanics.
-- Extra routes or pages.
-- Adding, editing, deleting or reordering tasks.
-- Custom categories, deadlines, reminders or schedules.
-- Analytics, leaderboards, achievements or social features.
-- Backend APIs, cloud sync or live anime data.
-- Multiplayer features.
+The following features must not be included in this version: - Login,
+registration, user accounts, or role management. - Database integration
+or persistent storage. - Payments, subscriptions, or donations. -
+Chatbot or AI assistant. - Combat simulation or battle mechanics. -
+Additional routes or pages beyond the single dashboard. - Creating,
+editing, deleting, or reordering tasks. - Custom task categories,
+deadlines, reminders, or schedules. - Analytics, leaderboards,
+achievements, or social features. - Backend APIs or cloud
+synchronization.
+
+## 12. Technical Requirements
+
+-   **Next.js:** Build the dashboard within a single route.
+-   **TypeScript:** Use typed task data and completion state.
+-   **Tailwind CSS:** Implement the layout, responsive behavior, colors,
+    and visual states.
+-   **State management:** Use straightforward client-side state for task
+    completion.
+-   **Progress logic:** Derive the completed count and percentage from
+    the three task states.
+-   **Persistence:** Do not implement database or browser-storage
+    persistence.
+
+No application code is included in this document. This PRD defines the
+intended product behavior and requirements before implementation.
