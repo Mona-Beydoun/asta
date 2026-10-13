@@ -51,8 +51,7 @@ current completion state.
 Display exactly three separate task cards: 1. Sword control 2. Physical
 endurance 3. Team coordination
 
-All tasks start as incomplete. Each card clearly shows its task name and
-completion state.
+Each card clearly shows its task name, description, priority, and completion state.
 
 ### Feature 2: Reversible task completion
 
@@ -77,6 +76,16 @@ completed tasks: 100%
 The displayed percentage may be rounded to a whole number. The count,
 percentage, and progress bar must stay consistent.
 
+## Sample Data
+
+| Task | Description | Priority |
+| --- | --- | --- |
+| Sword control | Practise precise anti-magic sword movements. | High |
+| Physical endurance | Complete a focused strength and stamina session. | Medium |
+| Team coordination | Review a preparation plan with the Black Bulls. | High |
+
+These are fictional teaching examples, not official character statistics.
+
 ## 6. User Stories
 
 -   As Asta, I want to see all my preparation tasks in one place so I
@@ -99,6 +108,7 @@ percentage, and progress bar must stay consistent.
     "Team coordination."
 -   [ ] Every task starts incomplete when the dashboard is initialized.
 -   [ ] Each card visibly communicates whether its task is complete.
+-   [ ] Each card shows its name, description, and priority.
 
 ### Completion controls
 
