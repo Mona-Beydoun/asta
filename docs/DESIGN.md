@@ -16,9 +16,8 @@ A dark, focused dashboard that makes Asta's next task and progress obvious. The 
 | Accent | Yellow (orange in the first version) |
 
 ## Typography
-- **Headings:** Bold sans-serif, larger than all other text so the hierarchy is clear.
-- **Body:** Regular sans-serif for descriptions and status text.
-- **Sizes:** Task names are larger than descriptions, and descriptions are large enough to read comfortably on mobile.
+- **Headings:** Plus Jakarta Sans
+- **Body and labels:** Inter
 
 ## Spacing
 Consistent padding inside cards and equal gaps between cards. The layout is a single column on mobile and wider on desktop.
