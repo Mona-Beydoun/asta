@@ -1,36 +1,42 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Asta's Preparation Dashboard
 
-## Getting Started
+**Author:** [Mona Beydoun]
 
-First, run the development server:
+A small web dashboard that helps Asta (a fictional fighter preparing for Lucifero) follow a three-task training plan. He can mark tasks complete or undo them and see a completed / total count and a preparation percentage.
 
+Built for TechTalks Assignment 2. Stack: Next.js, TypeScript, Tailwind CSS.
+
+## Features
+- View three training tasks with description and priority
+- Mark each task complete and undo it
+- See the completed / total count, a percentage and a progress bar
+
+## Install and run
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```
+Open http://localhost:3000.
+
+Other scripts:
+```bash
+npm run lint
+npm run build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Limitations
+- Progress is session-only. Refreshing the page resets all tasks to incomplete (0 / 3, 0%).
+- Tasks are fixed. They cannot be added, edited, deleted or reordered.
+- The percentage measures preparation-plan completion only. It does not predict the outcome against Lucifero.
+- There is no login, database or saved data.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Documents
+- [PRD](docs/PRD.md)
+- [Design decisions](docs/DESIGN.md)
+- [MCP connection](docs/MCP.md)
+- [Proof of concept](docs/POC.md)
+- [Review and reflection](docs/REVIEW.md)
+- Screenshots: `docs/evidence/`
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Notes
+The characters come from Black Clover (by Yuki Tabata). This is an educational project inspired by it, using fictional training data.
