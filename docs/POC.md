@@ -1,5 +1,4 @@
 # Proof of Concept
-# Proof of Concept
 
 ## Question
 Can task completion and the progress summary stay consistent when tasks are completed, undone, and toggled repeatedly?
